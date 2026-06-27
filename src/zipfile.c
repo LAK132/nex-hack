@@ -289,8 +289,7 @@ zipfile_extract_file(char *fname_zip, char *fname_inzip, char *dirname_out, char
 
 	if (dirname_out) {
 		sprintf(fullname_out, "%s/%s", dirname_out, p_basename_inzip);
-		//(void)mkdir(dirname_out, 0777);
-		mkdir(dirname_out);
+		(void)mkdir(dirname_out, 0777);
 	} else {
 		strcpy(fullname_out, p_basename_inzip);
 	}
@@ -381,14 +380,12 @@ _zipfile_extract_current_entry(zip_handle zh, char *dirname_out, char *p_fname_b
 			char	l_filename_inzip[MAXPATH];
 			sprintf(l_filename_inzip,"%s/%s", dirname_out, filename_inzip);
 			sprintf(plog_global, "Creating directory: %s\n",l_filename_inzip); log_it(plog_global);
-			//(void)mkdir(l_filename_inzip, 0777);
-			mkdir(l_filename_inzip);
+			(void)mkdir(l_filename_inzip, 0777);
 		}
 
 		else {
 			sprintf(plog_global, "Creating directory: %s\n",filename_inzip); log_it(plog_global);
-			//(void)mkdir(filename_inzip, 0777);
-			mkdir(filename_inzip);
+			(void)mkdir(filename_inzip, 0777);
 		}
 	}
 	else {
@@ -416,16 +413,14 @@ _zipfile_extract_current_entry(zip_handle zh, char *dirname_out, char *p_fname_b
 					char	l_write_filename[MAXPATH];
 					sprintf(l_write_filename,"%s/%s", dirname_out, filename_inzip);
 					sprintf(plog_global, "Creating directory (from path): %s\n",l_write_filename); log_it(plog_global);
-					//(void)mkdir(l_write_filename, 0777);
-					mkdir(l_write_filename);
+					(void)mkdir(l_write_filename, 0777);
 					*(filename_withoutpath-1)=c;
 					sprintf(l_write_filename,"%s/%s", dirname_out, filename_inzip);
 					fout=fopen(l_write_filename,"wb");
 				}
 				else {
 					sprintf(plog_global, "Creating directory (from path): %s\n",write_filename); log_it(plog_global);
-					//(void)mkdir(write_filename, 0777);
-					mkdir(write_filename);
+					(void)mkdir(write_filename, 0777);
 					*(filename_withoutpath-1)=c;
 					fout=fopen(write_filename,"wb");
 				}

@@ -122,8 +122,7 @@ _fwdata_do_unpack(const char *fname_fwdata_in, const char *single_chunk_id, cons
 
 	if (full_extract_dirname_out) {
 		// confirm that output directory exists (create if necessary)
-		// (void)mkdir(full_extract_dirname_out, 0777);
-		mkdir(full_extract_dirname_out);
+		(void)mkdir(full_extract_dirname_out, 0777);
 
 		// create chunk TOC (table of contents) file
 		sprintf(fname_buf, "%s/%s", (char *)full_extract_dirname_out, FWD_CHUNK_TOC_NAME);
@@ -136,7 +135,7 @@ _fwdata_do_unpack(const char *fname_fwdata_in, const char *single_chunk_id, cons
 
 	//
 	// the structure of the file (after the 8-byte 'magic' value
-	// {0x89,0x55,0x46,0x55,0x0d,0x0a,0x1a,0x0a,} = "‰UFU<cr><lf><sub><lf>")
+	// {0x89,0x55,0x46,0x55,0x0d,0x0a,0x1a,0x0a,} = "â€°UFU<cr><lf><sub><lf>")
 	// is a series of 'records'.  a record consist of:
 	//
 	//	- a 32-bit 'record length' value (stored BIG-endian ! )

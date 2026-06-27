@@ -61,16 +61,16 @@ fdat_read_image_header(const char *fname_fdat, FDAT_IMAGE_HEADER *p_image_hdr)
 	}
 	// endian-convert header
 
-	le32toh((u8 *)&l_hdr.fih_header_crc);
-	le32toh((u8 *)&l_hdr.fih_fw_offset);
-	le32toh((u8 *)&l_hdr.fih_fw_length);
-	le32toh((u8 *)&l_hdr.fih_fs_image_count);
+	// le32toh((u8 *)&l_hdr.fih_header_crc);
+	// le32toh((u8 *)&l_hdr.fih_fw_offset);
+	// le32toh((u8 *)&l_hdr.fih_fw_length);
+	// le32toh((u8 *)&l_hdr.fih_fs_image_count);
 
-	for (i = 0; i < l_hdr.fih_fs_image_count; i++) {
-		p_desc = &l_hdr.fih_fs_image_info[i];
-		le32toh((u8 *)&p_desc->ffid_fs_length);
-		le32toh((u8 *)&p_desc->ffid_fs_offset);
-	}
+	// for (i = 0; i < l_hdr.fih_fs_image_count; i++) {
+	// 	p_desc = &l_hdr.fih_fs_image_info[i];
+	// 	le32toh((u8 *)&p_desc->ffid_fs_length);
+	// 	le32toh((u8 *)&p_desc->ffid_fs_offset);
+	// }
 
 	memcpy((void *)p_image_hdr, (void *)&l_hdr, sizeof(l_hdr));
 

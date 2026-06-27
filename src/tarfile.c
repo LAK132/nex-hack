@@ -233,7 +233,6 @@ _tarfile_extract_create_dir(char *path)
 	}
 	// FIXME: try real mode here??
 	if (mkdir(path, 0777) == 0) {
-	//if (mkdir(path) == 0) {
 		return 0;
 	}
 
@@ -415,7 +414,7 @@ _tarfile_extract_current_entry(tar_handle th, const char *dirname_out, struct ar
 			goto exit_err;
 		}
 		while(1) {
-			ret = archive_read_data_block(th->a, &block_buf, &block_size, &offset);
+			ret = archive_read_data_block(th->a, &block_buf, &block_size, (la_int64_t*)&offset);
 			if (ret == ARCHIVE_EOF) {
 				break;
 			}
@@ -473,7 +472,6 @@ tarfile_extract_all(const char *fname_tar, const char *dirname_out, int show_ext
 	}
 
 	(void)mkdir(dirname_out, 0777);
-	//mkdir(dirname_out);
 	while(1) {
 		ret = archive_read_next_header(th->a, &entry);
 		if (ret == ARCHIVE_EOF) {

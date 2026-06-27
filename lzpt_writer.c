@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "src/lzpt_io.h"
+
+#include <bits/getopt_core.h>
+
 //eg
 //
 // /mnt/c/projects/nex-hack/bin/lzpt_writer -i level5/nflasha8_usr_ext2.fsimg -o level3/fdat_fw/0700_part_image/dev/nflasha8 -l 1

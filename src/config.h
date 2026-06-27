@@ -33,6 +33,10 @@
 #include <stdlib.h>
 #include <inttypes.h>
 
+#ifndef __USE_MISC
+#define __USE_MISC
+#endif
+#include <endian.h>
 
 #if	defined(__POCC__)	// POCC lib use '_function' for POSIX 'function'
 
@@ -67,6 +71,7 @@
 #else
 	#include <unistd.h>
 	#include <sys/types.h>
+	#include <sys/stat.h>
 	#include <dirent.h>
 #endif // __POCC__
 

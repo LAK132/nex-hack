@@ -38,6 +38,12 @@
         #ifndef _FILE_OFFSET_BIT
                 #define _FILE_OFFSET_BIT 64
         #endif
+        #ifndef __USE_MISC
+                #define __USE_MISC
+        #endif
+        #ifndef __USE_XOPEN2K
+                #define __USE_XOPEN2K
+        #endif
 
 #endif
 

@@ -29,6 +29,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
+#include <unistd.h>
+
+#ifndef __USE_MISC
+#define __USE_MISC
+#endif
+#include <endian.h>
 
 
 #include "fwt_names.h"
